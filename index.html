@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Now</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Now</h1>
+        
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Digite uma cidade...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+            <button id="locate-btn" title="Usar minha localização"><i class="fas fa-location-arrow"></i></button>
+        </div>
+
+        <div id="location-status" class="hidden"></div>
+
+        <!-- Card para busca manual -->
+        <div id="weather-card" class="weather-card">
+            <h2><i class="fas fa-city"></i> <span id="city-name">--</span></h2>
+            <div id="weather-icon"></div>
+            <div id="temperature">--°C</div>
+            <div id="weather-desc">--</div>
+            <div class="weather-details">
+                <div><i class="fas fa-tint"></i> <span id="humidity">--</span>%</div>
+                <div><i class="fas fa-wind"></i> <span id="wind">--</span> km/h</div>
+                <div><i class="fas fa-temperature-low"></i> <span id="feels-like">--</span>°C</div>
+            </div>
+        </div>
+
+        <!-- Card para GPS -->
+        <div id="gps-card" class="weather-card hidden">
+            <h2><i class="fas fa-map-marker-alt"></i> <span id="gps-city-name">Sua localização</span></h2>
+            <div id="gps-weather-icon"></div>
+            <div id="gps-temperature">--°C</div>
+            <div id="gps-weather-desc">--</div>
+            <div class="weather-details">
+                <div><i class="fas fa-tint"></i> <span id="gps-humidity">--</span>%</div>
+                <div><i class="fas fa-wind"></i> <span id="gps-wind">--</span> km/h</div>
+                <div><i class="fas fa-temperature-low"></i> <span id="gps-feels-like">--</span>°C</div>
+            </div>
+        </div>
+
+        <div id="loading" class="hidden">
+            <i class="fas fa-spinner fa-spin"></i> Carregando...
+        </div>
+
+        <div id="error-msg" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
