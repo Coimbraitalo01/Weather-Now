@@ -1,0 +1,229 @@
+:root {
+  --primary-color: #3498db;
+  --primary-hover: #2980b9;
+  --error-bg: #fadbd8;
+  --error-text: #e74c3c;
+  --success-bg: #d4edda;
+  --success-text: #155724;
+  --text-light: #666;
+  --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 10px;
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.search-box {
+  display: flex;
+  margin: 25px 0;
+  gap: 8px;
+}
+
+#city-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+#city-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+#search-btn, #locate-btn {
+  padding: 12px 15px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 16px;
+}
+
+#search-btn:hover, #locate-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+#search-btn:focus, #locate-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+}
+
+.weather-card {
+  background: white;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  margin: 20px 0;
+  transition: var(--transition);
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.weather-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+.weather-card img {
+  width: 80px;
+  height: 80px;
+  margin: 10px 0;
+}
+
+#temperature, #gps-temperature {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #2c3e50;
+}
+
+#weather-desc, #gps-weather-desc {
+  text-transform: capitalize;
+  color: var(--text-light);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.weather-details {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.weather-details div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+#loading {
+  margin: 20px 0;
+  font-style: italic;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+#error-msg, #location-status {
+  padding: 12px 15px;
+  border-radius: var(--border-radius);
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+#error-msg {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+#location-status.error {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+#location-status.success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Accessibility focus styles */
+[tabindex]:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Layout para duas colunas em telas maiores */
+@media (min-width: 768px) {
+  .weather-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  
+  .container {
+    padding: 30px;
+  }
+}
+
+/* Dark mode preference */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+    color: #ecf0f1;
+  }
+  
+  .weather-card {
+    background: #34495e;
+    color: #ecf0f1;
+  }
+  
+  #city-input {
+    background: #2c3e50;
+    color: #ecf0f1;
+    border-color: #4a6278;
+  }
+  
+  #temperature, #gps-temperature {
+    color: #ecf0f1;
+  }
+  
+  #weather-desc, #gps-weather-desc {
+    color: #bdc3c7;
+  }
+}
