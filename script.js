@@ -32,9 +32,20 @@ const elements = {
     }
 };
 
+// Configuração da API
+const API_CONFIG = {
+    baseUrl: 'https://api.openweathermap.org/data/2.5/weather',
+    apiKey: '096ecd778ba85cbb0e790dca2b7768ec',
+    lang: 'pt_br',
+    units: 'metric'
+};
+
 // Event Listeners
 elements.btn.addEventListener('click', fetchManualWeather);
 elements.locateBtn.addEventListener('click', getLocation);
+elements.input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') fetchManualWeather();
+});
 
 // Função para buscar clima manualmente
 async function fetchManualWeather() {
@@ -54,7 +65,8 @@ async function fetchManualWeather() {
         updateUI(elements.manual, weather);
         elements.manualCard.classList.remove('hidden');
     } catch (error) {
-        showError(error.message);
+        showError(error.message || "Erro ao buscar dados da cidade");
+        elements.manualCard.classList.add('hidden');
     } finally {
         showLoading(false);
     }
@@ -78,6 +90,7 @@ async function getLocation() {
         showLocationStatus("Localização obtida com sucesso!", false);
     } catch (error) {
         showLocationStatus(error.message, true);
+        elements.gpsCard.classList.add('hidden');
     } finally {
         showLoading(false);
     }
@@ -87,7 +100,7 @@ async function getLocation() {
 function getCurrentPosition() {
     return new Promise((resolve, reject) => {
         if (!navigator.geolocation) {
-            reject(new Error("Geolocalização não suportada"));
+            reject(new Error("Geolocalização não suportada pelo navegador"));
             return;
         }
 
@@ -97,7 +110,7 @@ function getCurrentPosition() {
                 let message = "Erro na geolocalização";
                 switch(err.code) {
                     case 1: message = "Permissão negada. Ative nas configurações."; break;
-                    case 2: message = "Localização indisponível"; break;
+                    case 2: message = "Localização indisponível no momento"; break;
                     case 3: message = "Tempo de espera esgotado"; break;
                 }
                 reject(new Error(message));
@@ -109,9 +122,9 @@ function getCurrentPosition() {
 
 // Funções da API
 async function getWeatherData(city) {
-    const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=096ecd778ba85cbb0e790dca2b7768ec&lang=pt_br`
-    );
+    const url = `${API_CONFIG.baseUrl}?q=${encodeURIComponent(city)}&units=${API_CONFIG.units}&appid=${API_CONFIG.apiKey}&lang=${API_CONFIG.lang}`;
+    
+    const response = await fetch(url);
     
     if (!response.ok) {
         const error = await response.json();
@@ -122,9 +135,9 @@ async function getWeatherData(city) {
 }
 
 async function getWeatherByCoords(lat, lon) {
-    const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=096ecd778ba85cbb0e790dca2b7768ec&lang=pt_br`
-    );
+    const url = `${API_CONFIG.baseUrl}?lat=${lat}&lon=${lon}&units=${API_CONFIG.units}&appid=${API_CONFIG.apiKey}&lang=${API_CONFIG.lang}`;
+    
+    const response = await fetch(url);
     
     if (!response.ok) throw new Error("Erro ao obter dados de localização");
 
@@ -177,3 +190,8 @@ function showLocationStatus(message, isError = true) {
 function hideLocationStatus() {
     elements.locationStatus.classList.add('hidden');
 }
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', () => {
+    elements.input.focus();
+});

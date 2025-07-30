@@ -1,18 +1,19 @@
-# Weather Now ☀️🌧️
+# Weather Now 🌤️
 
-Aplicativo de previsão do tempo com geolocalização
+![Preview](preview.jpg)
 
-## Funcionalidades
-- Busca por cidade
-- Detecção automática de localização
-- Exibição de temperatura, umidade e vento
+Aplicativo de clima minimalista e responsivo
+
+## Features
+- Design moderno
+- Totalmente responsivo
+- Acessível
 
 ## Tecnologias
-- HTML5, CSS3, JavaScript
-- API OpenWeatherMap
+- HTML5
+- CSS3
+- JavaScript
 
-## Como Executar
+## Como executar
 ```bash
-git clone https://github.com/seu-usuario/weather-now.git
-cd weather-now
 python -m http.server 8000
