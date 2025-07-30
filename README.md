@@ -1,21 +1,35 @@
-# Weather Now 🌤️
+# Weather Now ⛅ 
+[![GitHub Pages](https://img.shields.io/badge/🌐_Online-Acesse_agora!-success?style=for-the-badge)](https://coimbraitalo01.github.io/Weather-Now/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE)
+
 ![Preview do App](https://github.com/Coimbraitalo01/Weather-Now/raw/main/Preview.png)
 
-Aplicativo de clima minimalista e responsivo com geolocalização e busca por cidade.
+Aplicativo de previsão do tempo com geolocalização instantânea e busca por cidade. Desenvolvido como projeto de portfólio com foco em acessibilidade e performance.
 
-## ✨ Features
-- 🌍 Geolocalização automática
-- 🔍 Busca por cidade
-- 📱 Design totalmente responsivo
-- ♿ Acessibilidade garantida
-- 🌈 Modo claro/escuro automático
+## ✨ Funcionalidades
+- 🌍 **Geolocalização automática** (com fallback elegante)
+- 🔍 **Busca manual** por cidades worldwide
+- 📱 **Design 100% responsivo** (mobile-first)
+- ♿ **Acessibilidade** (contraste, ARIA labels, keyboard nav)
+- ⚡ **Performance otimizada** (loading skeleton)
+- 🌗 **Modo claro/escuro** automático
 
-## 🛠️ Tecnologias
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+## 🚀 Como Usar
 
-## 🚀 Como Executar
-1. Clone o repositório:
+### 🌐 Online (Recomendado)
+Acesse diretamente pelo GitHub Pages:  
+👉 [https://coimbraitalo01.github.io/Weather-Now/](https://coimbraitalo01.github.io/Weather-Now/)
+
+### 💻 Localmente
 ```bash
+# Clone o repositório
 git clone https://github.com/Coimbraitalo01/Weather-Now.git
+
+# Acesse a pasta
+cd Weather-Now
+
+# Abra no navegador (3 opções):
+# 1. Clique duplo em index.html
+# 2. Via Python:
+python -m http.server 8000
+# 3. Com Live Server (VSCode)
