@@ -1,22 +1,21 @@
 # Weather Now 🌤️
+![Preview do App](https://github.com/Coimbraitalo01/Weather-Now/raw/main/Preview.png)
 
-![Preview](preview.jpg)
+Aplicativo de clima minimalista e responsivo com geolocalização e busca por cidade.
 
-Aplicativo de clima minimalista e responsivo
+## ✨ Features
+- 🌍 Geolocalização automática
+- 🔍 Busca por cidade
+- 📱 Design totalmente responsivo
+- ♿ Acessibilidade garantida
+- 🌈 Modo claro/escuro automático
 
-## Features
-- Design moderno
-- Totalmente responsivo
-- Acessível
+## 🛠️ Tecnologias
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 
-## Tecnologias
-- HTML5
-- CSS3
-- JavaScript
-
-<<<<<<< HEAD
-## Como executar
+## 🚀 Como Executar
+1. Clone o repositório:
 ```bash
-python -m http.server 8000
-=======
->>>>>>> 63d810156df933e26c71319095c1d22a3485bfa0
+git clone https://github.com/Coimbraitalo01/Weather-Now.git
